@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from "vue";
 import { useMainStore } from "../stores/MainStore";
 
 const store = useMainStore();

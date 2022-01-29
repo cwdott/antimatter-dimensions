@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.1.0",
+    "unplugin-auto-import": "^0.5.11",
     "vite": "^2.7.13"
   }
 }

@@ -1,41 +1,25 @@
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { useIntervalFn } from "@vueuse/core";
 import { useMainStore } from "./stores/MainStore";
+import { gameLoop } from "./gameLoop";
 
-import Dimensions from "./dimensions.js";
 import DimensionComponent from "./components/DimensionComponent.vue";
 
-export default defineComponent({
-  components: {
-    DimensionComponent,
-  },
-  setup() {
-    const store = useMainStore();
-    return {
-      store,
-    };
-  },
-  data() {
-    return {
-      dimensions: Dimensions,
-    };
-  },
-  methods: {
-    gameLoop() {
-      useIntervalFn(() => {
-        this.store.antimatter.total += this.store.antimatter.rate;
-      }, 1000);
-    },
-  },
-  mounted() {
-    // Allows us to start with whatever level of dimensions unlocked
-    for (let i = 1; i < this.store.level + 1; i++) {
-      this.store.unlockDimension(i);
-    }
+const store = useMainStore();
 
-    this.gameLoop();
-  },
+function START_THE_GAME_ALREADY() {
+  useIntervalFn(() => {
+    gameLoop(store.$state);
+  }, 1000);
+}
+
+onMounted(() => {
+  // Allows us to start with whatever level of dimensions unlocked
+  for (let i = 1; i < store.level + 1; i++) {
+    store.unlockDimension(i);
+  }
+
+  START_THE_GAME_ALREADY();
 });
 </script>
 
