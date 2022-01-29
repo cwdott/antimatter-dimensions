@@ -1,0 +1,63 @@
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+.container {
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 30px;
+  background: #eee;
+}
+
+header .container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+section#gameStats .container {
+  text-align: center;
+  padding: 50px 0;
+}
+
+#dimensions {
+  height: 100%;
+}
+
+#dimensions .dimension {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dimensions .dimension div {
+  width: 33%;
+}
+
+#dimensions .dimension div:last-child {
+  text-align: right;
+}
+
+#dimensions .dimension button {
+  width: 200px;
+}
